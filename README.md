@@ -4,6 +4,8 @@ A free, open-source desktop app to manage Counter-Strike 2 configs across multip
 
 Built with **Tauri 2** (Rust backend) + **React 19 / Vite / Tailwind CSS v4** (frontend). Windows only (for now).
 
+**English** · [Português (BR)](README.pt-BR.md)
+
 ## Features
 
 - **Automatic Steam detection** — finds your Steam install via the registry (with a manual folder override if auto-detect fails).
@@ -85,26 +87,8 @@ Releases are built by GitHub Actions (`.github/workflows/release.yml`): push a t
 
 ## Origin
 
-This app was extracted from [lowlights](../web) (a local CS2 highlight generator), where the config manager first shipped as a feature. It is now a standalone project so any CS2 player can use it.
+This app was extracted from lowlights (a local CS2 highlight generator), where the config manager first shipped as a feature. It is now a standalone project so any CS2 player can use it.
 
 ## License
 
 [MIT](LICENSE) © brunobach
-
----
-
-## Português (BR)
-
-Gerenciador de configs de CS2 gratuito e open source para múltiplas contas Steam.
-
-- Detecta a Steam automaticamente (com opção de escolher a pasta manualmente)
-- Lista todas as contas com avatar, resolução, binds e convars
-- Mostra e edita vídeo, crosshair (com preview), viewmodel, mouse, radar/HUD e binds
-- Transfere configs entre contas em dois cliques
-- Compara duas contas e mostra as diferenças
-- Backup automático antes de qualquer alteração + snapshots manuais
-- Avisa quando Steam/CS2 estão abertos (a Steam Cloud pode sobrescrever mudanças)
-
-**Importante:** feche o CS2 (e de preferência a Steam) antes de editar ou transferir configs.
-
-Baixe o instalador em [Releases](../../releases). Para desenvolver: Node 22+, Rust (rustup) e Build Tools da Microsoft; depois `npm install` e `npm run tauri dev`.
