@@ -26,6 +26,8 @@ Baixe o instalador Windows mais recente (`*-setup.exe`, NSIS) em [Releases](../.
 
 > **Importante:** feche o CS2 (e de preferência a Steam) antes de editar ou transferir configs. A sincronização da Steam Cloud pode sobrescrever mudanças feitas enquanto o jogo está aberto. O app avisa quando detecta um dos dois processos.
 
+> **Aviso do Windows (SmartScreen):** o instalador ainda não tem assinatura de código (certificados são caros — este é um projeto gratuito), então o Windows mostra uma tela vermelha de *"O Windows protegeu o computador"* na primeira execução. Clique em **Mais informações → Executar mesmo assim**. Pretendemos obter assinatura gratuita para open source (SignPath) para remover esse aviso.
+
 ## Onde ele escreve?
 
 - **Lê/escreve configs de CS2** apenas dentro de `Steam/userdata/<accountId>/730/local/cfg/` (os quatro arquivos: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`).

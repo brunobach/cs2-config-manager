@@ -26,6 +26,8 @@ Grab the latest Windows installer (`*-setup.exe`, NSIS) from [Releases](../../re
 
 > **Important:** close CS2 (and preferably Steam) before editing or transferring configs. Steam Cloud sync can overwrite changes made while the game is running. The app warns you when it detects either process.
 
+> **Windows SmartScreen warning:** the installer is not code-signed yet (certificates are expensive — this is a free project), so Windows shows a red *"Windows protected your PC"* screen on first run. Click **More info → Run anyway**. We plan to get free open-source signing (SignPath) to remove this warning.
+
 ## Where does it write?
 
 - **Reads/writes CS2 configs** only inside `Steam/userdata/<accountId>/730/local/cfg/` (the four files: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`).
