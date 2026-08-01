@@ -1,5 +1,7 @@
 # CS2 Config Manager
 
+![CS2 Config Manager — manage, compare and transfer configs across all your Steam accounts](.github/images/cs2cfg.png)
+
 A free, open-source desktop app to manage Counter-Strike 2 configs across multiple Steam accounts.
 
 Built with **Tauri 2** (Rust backend) + **React 19 / Vite / Tailwind CSS v4** (frontend). Windows only (for now).
