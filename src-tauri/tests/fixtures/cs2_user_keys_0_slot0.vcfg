@@ -1,0 +1,23 @@
+"config"
+{
+	"bindings"
+	{
+		"t"		"+lookatweapon"
+		"v"		"+spray_menu"
+		"f"		"slot7"
+		"7"		"<unbound>"
+		"SPACE"		"+jump"
+		"MWHEELUP"		"+jump"
+		"MWHEELDOWN"		"+jump"
+		"j"		"radio"
+		"z"		"<unbound>"
+		"c"		"slot6"
+		"x"		"slot10"
+		"4"		"slot4"
+		"r"		"+reload"
+		"CAPSLOCK"		"noclip"
+		"k"		"sv_rethrow_last_grenade"
+		"MOUSE5"		"sv_rethrow_last_grenade 1"
+		"p"		"toggle demoui"
+	}
+}

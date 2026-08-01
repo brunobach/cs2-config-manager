@@ -1,0 +1,39 @@
+[package]
+name = "cs2-config-manager"
+version = "0.1.0"
+description = "Open source desktop app to manage CS2 configs across Steam accounts"
+edition = "2021"
+rust-version = "1.77.2"
+license = "MIT"
+
+# The lib target is consumed by `src/main.rs` (and by mobile targets later on),
+# following the standard Tauri v2 template layout.
+[lib]
+name = "cs2_config_manager_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+# Remote avatar fallback: blocking client so the command can stay simple
+# (it is dispatched via tauri::async_runtime::spawn_blocking in lib.rs).
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "rustls-tls"] }
+# UTC ISO-8601 timestamps (equivalente ao `Date.prototype.toISOString` do TS).
+# Sem features extras: só usamos `OffsetDateTime::now_utc()` e montamos a
+# string manualmente a partir dos componentes — não precisamos de `formatting`
+# nem de `local-offset` (todos os timestamps são UTC, como o toISOString).
+time = "0.3"
+# Mapas ordenados por inserção para que o JSON preserve a ordem das chaves
+# do arquivo VDF, exatamente como os objetos JS fazem no backend TS.
+indexmap = { version = "2", features = ["serde"] }
+
+[target.'cfg(windows)'.dependencies]
+winreg = "0.52"
+
+[profile.release]
+lto = true
+codegen-units = 1

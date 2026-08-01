@@ -1,0 +1,352 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "close": "Close",
+    "loading": "Loading…",
+    "confirm": "Confirm",
+    "back": "Back",
+    "search": "Search",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create",
+    "restore": "Restore",
+    "retry": "Retry",
+    "yes": "Yes",
+    "no": "No",
+    "or": "or",
+    "of": "of",
+    "on": "On",
+    "off": "Off",
+    "actions": "Actions",
+    "saveChanges": "Save changes",
+    "saved": "Saved.",
+    "savedWithBackup": "Saved. Backup created automatically.",
+    "backToAccounts": "Back to accounts",
+    "steamNotDetected": "Steam not detected",
+    "selectAccount": "Select an account",
+    "accountFallback": "Account {{id}}"
+  },
+  "errors": {
+    "steam_not_found": "Steam installation not found. Check the Steam path.",
+    "invalid_path": "Invalid path. Check the provided path and try again.",
+    "account_not_found": "Account not found.",
+    "backup_not_found": "Backup not found.",
+    "io": "Error reading or writing files. Please try again.",
+    "invalid_input": "Invalid input. Check the data and try again.",
+    "parse": "Could not parse the configuration file.",
+    "network": "Network failure. Check your connection and try again."
+  },
+  "shell": {
+    "tagline": "open source",
+    "language": "Language",
+    "nav": {
+      "accounts": "Accounts",
+      "compare": "Compare"
+    },
+    "theme": {
+      "toggle": "Toggle theme",
+      "light": "Light",
+      "dark": "Dark"
+    }
+  },
+  "accounts": {
+    "title": "Steam Accounts",
+    "description": "Manage, compare and transfer CS2 configs between your accounts",
+    "compareButton": "Compare accounts",
+    "configureSteamPath": "Set Steam folder",
+    "empty": {
+      "title": "No accounts with CS2",
+      "description": "No account on this Steam installation has a CS2 config folder (userdata/<id>/730)."
+    },
+    "displayMode": {
+      "fullscreen": "Fullscreen",
+      "borderless": "Borderless window",
+      "windowed": "Windowed"
+    },
+    "badges": {
+      "recentLogin": "Recent login",
+      "autoLogin": "Auto-login",
+      "noLocalProfile": "No local profile"
+    },
+    "card": {
+      "actions": "Account actions",
+      "open": "Open",
+      "binds_one": "{{count}} bind",
+      "binds_other": "{{count}} binds",
+      "convars_one": "{{count}} convar",
+      "convars_other": "{{count}} convars"
+    }
+  },
+  "steamPath": {
+    "title": "Steam folder",
+    "change": "Change folder",
+    "cfgDir": "Game cfg folder:",
+    "steamRunning": "Steam is running",
+    "cs2Running": "CS2 is running",
+    "source": {
+      "auto": "Automatic",
+      "override": "Manual",
+      "env": "Env"
+    },
+    "dialog": {
+      "title": "Change Steam folder",
+      "description": "Enter the Steam installation folder (the one containing the <mono>userdata</mono> subfolder).",
+      "pathRequired": "Enter the Steam folder",
+      "updated": "Steam folder updated",
+      "autoRestored": "Automatic detection restored",
+      "restoreAuto": "Restore automatic detection"
+    }
+  },
+  "transfer": {
+    "title": "Transfer configs",
+    "description": "Copies the selected sections from the source account to the destination account.",
+    "action": "Transfer configs…",
+    "actionTo": "Transfer configs to…",
+    "from": "Source",
+    "to": "Destination",
+    "sections": "Sections",
+    "section": {
+      "video": {
+        "label": "Video",
+        "hint": "resolution, quality"
+      },
+      "convars": {
+        "label": "Convars",
+        "hint": "crosshair, viewmodel, mouse, HUD"
+      },
+      "binds": {
+        "label": "Binds",
+        "hint": "keys"
+      },
+      "machine": {
+        "label": "Machine convars",
+        "hint": "hardware, graphics"
+      }
+    },
+    "warning": {
+      "title": "Close CS2 and Steam before transferring",
+      "description": "Steam Cloud may overwrite the changes if the game is open."
+    },
+    "selectBoth": "Select the source and destination accounts",
+    "sameAccount": "Source and destination must be different accounts",
+    "selectSection": "Select at least one section to transfer",
+    "submit": "Transfer",
+    "success_one": "Configs transferred ({{count}} file).",
+    "success_other": "Configs transferred ({{count}} files).",
+    "successWithBackup_one": "Configs transferred ({{count}} file). Destination backup created.",
+    "successWithBackup_other": "Configs transferred ({{count}} files). Destination backup created."
+  },
+  "compare": {
+    "title": "Compare accounts",
+    "description": "See the config differences between two accounts",
+    "accountA": "Account A",
+    "accountB": "Account B",
+    "submit": "Compare",
+    "dialog": {
+      "description": "See the config differences between two accounts.",
+      "selectBoth": "Select both accounts"
+    },
+    "sameAccount": {
+      "title": "Choose different accounts",
+      "description": "Select two distinct accounts to compare their configs."
+    },
+    "onlyDiffs": "Show differences only",
+    "transferAB": "Transfer from A → B…",
+    "select": {
+      "title": "Select two accounts to compare",
+      "description": "Choose accounts A and B above to see the config differences."
+    },
+    "identical": "The configs are identical.",
+    "summary_one": "{{count}} difference between the accounts.",
+    "summary_other": "{{count}} differences between the accounts.",
+    "groupDiffs_one": "{{count}} difference",
+    "groupDiffs_other": "{{count}} differences",
+    "groupIdentical": "identical",
+    "groupEmpty": "No differences in this group.",
+    "convar": "Convar",
+    "columnA": "A — {{name}}",
+    "columnB": "B — {{name}}",
+    "status": "Status",
+    "statusDifferent": "Different",
+    "statusOnlyA": "Only in A",
+    "statusOnlyB": "Only in B",
+    "groups": {
+      "video": "Video",
+      "crosshair": "Crosshair",
+      "viewmodel": "Viewmodel",
+      "mouse": "Mouse",
+      "radarHud": "Radar/HUD",
+      "binds": "Binds",
+      "others": "Others"
+    }
+  },
+  "detail": {
+    "notFound": {
+      "title": "Account without CS2 config"
+    },
+    "loadError": {
+      "title": "Failed to load the account"
+    },
+    "runningWarning": {
+      "title": "Steam/CS2 is running",
+      "description": "Close CS2 and Steam before editing — Steam Cloud may overwrite your changes."
+    },
+    "tabs": {
+      "overview": "Overview",
+      "edit": "Edit",
+      "binds": "Binds",
+      "convars": "Convars",
+      "files": "Files",
+      "backups": "Backups"
+    },
+    "video": {
+      "title": "Video",
+      "resolution": "Resolution",
+      "refreshRate": "Refresh rate",
+      "displayMode": "Display mode",
+      "width": "Width",
+      "height": "Height",
+      "reflexBoost": "On + Boost",
+      "qualityHint": "Graphics quality — higher values mean higher quality.",
+      "invalidResolution": "Invalid resolution",
+      "quality": {
+        "shadows": "Shadows",
+        "textures": "Textures",
+        "textureFiltering": "Texture filtering",
+        "particles": "Particles",
+        "ao": "Ambient occlusion (AO)",
+        "hdr": "HDR",
+        "fsr": "FidelityFX (FSR)",
+        "shader": "Shader"
+      }
+    },
+    "viewmodel": {
+      "title": "Viewmodel",
+      "preset": "Preset"
+    },
+    "mouse": {
+      "title": "Mouse",
+      "sensitivity": "Sensitivity",
+      "zoomSensitivity": "Zoom sensitivity (AWP)",
+      "acceleration": "Acceleration",
+      "accelOff": "Off",
+      "invalidSensitivity": "Invalid sensitivity"
+    },
+    "radar": {
+      "title": "Radar/HUD",
+      "size": "Radar size",
+      "zoom": "Radar zoom",
+      "rotates": "Radar rotates",
+      "hudScale": "HUD scale",
+      "centered": "Radar centered",
+      "iconScale": "Icon scale",
+      "empty": "No radar/HUD convars on this account."
+    }
+  },
+  "crosshair": {
+    "title": "Crosshair",
+    "style": "Style",
+    "color": "Color",
+    "size": "Size",
+    "gap": "Gap",
+    "thickness": "Thickness",
+    "dot": "Center dot",
+    "outline": "Outline",
+    "alpha": "Alpha",
+    "opaque": "Opaque",
+    "previewAria": "Crosshair preview",
+    "styles": {
+      "static": "Static",
+      "dynamic": "Dynamic",
+      "classic": "Classic {{style}}"
+    },
+    "colors": {
+      "red": "Red",
+      "green": "Green",
+      "yellow": "Yellow",
+      "blue": "Blue",
+      "cyan": "Cyan",
+      "custom": "Custom"
+    }
+  },
+  "binds": {
+    "searchPlaceholder": "Search by key or command…",
+    "discard": "Discard",
+    "key": "Key",
+    "command": "Command",
+    "commandPlaceholder": "Command (e.g. \"+jump\")",
+    "empty": "No binds on this account.",
+    "emptySearch": "No binds found.",
+    "duplicateKey": "That key already has a bind — edit the existing row",
+    "unboundTooltip": "Unbound key — remove the row to restore the game default",
+    "editBind": "Edit bind",
+    "removeBind": "Remove bind",
+    "undoRemove": "Undo removal",
+    "addBind": "Add bind",
+    "help": "Removing a bind deletes the key from the file (it reverts to the game default). Saving with an empty command marks the key as <unbound>."
+  },
+  "convars": {
+    "searchPlaceholder": "Search convar…",
+    "editedCount_one": "{{count}} edited",
+    "editedCount_other": "{{count}} edited",
+    "edited": "edited",
+    "editKey": "Edit {{key}}",
+    "empty": "No user convars on this account.",
+    "emptySearch": "No convars found.",
+    "machineReadonly": "Machine convars (read-only)",
+    "groups": {
+      "crosshair": "Crosshair",
+      "viewmodel": "Viewmodel",
+      "mouse": "Mouse",
+      "radarHud": "Radar/HUD",
+      "buymenu": "Buy menu",
+      "others": "Others"
+    }
+  },
+  "files": {
+    "fileLabel": "File",
+    "modifiedAt": "{{size}} · modified on {{date}}",
+    "save": "Save file",
+    "saved": "File saved.",
+    "savedWithBackup": "File saved. Backup created.",
+    "contentAria": "File content",
+    "targets": {
+      "video": "Video (cs2_video.txt)",
+      "convars": "User convars (cs2_user_convars_0_slot0.vcfg)",
+      "binds": "Binds (cs2_user_keys_0_slot0.vcfg)",
+      "machine": "Machine convars (cs2_machine_convars.vcfg)"
+    },
+    "missing": {
+      "title": "File does not exist on this account",
+      "description": "The game creates this file automatically, but you can create it manually.",
+      "create": "Create file"
+    },
+    "new": {
+      "title": "New file",
+      "description": "The content is written as-is — write it in the CS2 VDF format."
+    },
+    "confirm": {
+      "title": "Overwrite file?",
+      "description": "This overwrites the game file. A backup will be created first."
+    }
+  },
+  "backups": {
+    "create": "Create backup",
+    "createNow": "Create backup now",
+    "created": "Backup created",
+    "restored": "Backup restored",
+    "date": "Date",
+    "files": "Files",
+    "filesCount_one": "{{count}} file · {{size}}",
+    "filesCount_other": "{{count}} files · {{size}}",
+    "empty": {
+      "title": "No backups yet",
+      "description": "Backups are created automatically before each change, or manually with the button above."
+    },
+    "confirm": {
+      "title": "Restore backup?",
+      "description": "The current state will be backed up before restoring."
+    }
+  }
+}

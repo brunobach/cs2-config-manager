@@ -1,0 +1,352 @@
+{
+  "common": {
+    "save": "Salvar",
+    "cancel": "Cancelar",
+    "close": "Fechar",
+    "loading": "Carregando…",
+    "confirm": "Confirmar",
+    "back": "Voltar",
+    "search": "Buscar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "create": "Criar",
+    "restore": "Restaurar",
+    "retry": "Tentar novamente",
+    "yes": "Sim",
+    "no": "Não",
+    "or": "ou",
+    "of": "de",
+    "on": "Ligado",
+    "off": "Desligado",
+    "actions": "Ações",
+    "saveChanges": "Salvar alterações",
+    "saved": "Salvo.",
+    "savedWithBackup": "Salvo. Backup criado automaticamente.",
+    "backToAccounts": "Voltar para contas",
+    "steamNotDetected": "Steam não detectada",
+    "selectAccount": "Selecione a conta",
+    "accountFallback": "Conta {{id}}"
+  },
+  "errors": {
+    "steam_not_found": "Instalação do Steam não encontrada. Verifique o caminho do Steam.",
+    "invalid_path": "Caminho inválido. Verifique o caminho informado e tente novamente.",
+    "account_not_found": "Conta não encontrada.",
+    "backup_not_found": "Backup não encontrado.",
+    "io": "Erro ao ler ou gravar arquivos. Tente novamente.",
+    "invalid_input": "Entrada inválida. Verifique os dados e tente novamente.",
+    "parse": "Não foi possível interpretar o arquivo de configuração.",
+    "network": "Falha de rede. Verifique sua conexão e tente novamente."
+  },
+  "shell": {
+    "tagline": "open source",
+    "language": "Idioma",
+    "nav": {
+      "accounts": "Contas",
+      "compare": "Comparar"
+    },
+    "theme": {
+      "toggle": "Alternar tema",
+      "light": "Claro",
+      "dark": "Escuro"
+    }
+  },
+  "accounts": {
+    "title": "Contas Steam",
+    "description": "Gerencie, compare e transfira as configs de CS2 entre suas contas",
+    "compareButton": "Comparar contas",
+    "configureSteamPath": "Configurar pasta da Steam",
+    "empty": {
+      "title": "Nenhuma conta com CS2",
+      "description": "Nenhuma conta nesta instalação da Steam tem pasta de config do CS2 (userdata/<id>/730)."
+    },
+    "displayMode": {
+      "fullscreen": "Tela cheia",
+      "borderless": "Janela sem borda",
+      "windowed": "Janela"
+    },
+    "badges": {
+      "recentLogin": "Login recente",
+      "autoLogin": "Auto-login",
+      "noLocalProfile": "Sem perfil local"
+    },
+    "card": {
+      "actions": "Ações da conta",
+      "open": "Abrir",
+      "binds_one": "{{count}} binds",
+      "binds_other": "{{count}} binds",
+      "convars_one": "{{count}} convars",
+      "convars_other": "{{count}} convars"
+    }
+  },
+  "steamPath": {
+    "title": "Pasta da Steam",
+    "change": "Alterar pasta",
+    "cfgDir": "Pasta cfg do jogo:",
+    "steamRunning": "Steam em execução",
+    "cs2Running": "CS2 em execução",
+    "source": {
+      "auto": "Automático",
+      "override": "Manual",
+      "env": "Env"
+    },
+    "dialog": {
+      "title": "Alterar pasta da Steam",
+      "description": "Informe a pasta de instalação da Steam (a que contém a subpasta <mono>userdata</mono>).",
+      "pathRequired": "Informe a pasta da Steam",
+      "updated": "Pasta da Steam atualizada",
+      "autoRestored": "Detecção automática restaurada",
+      "restoreAuto": "Restaurar detecção automática"
+    }
+  },
+  "transfer": {
+    "title": "Transferir configs",
+    "description": "Copia as seções selecionadas da conta de origem para a de destino.",
+    "action": "Transferir configs…",
+    "actionTo": "Transferir configs para…",
+    "from": "Origem",
+    "to": "Destino",
+    "sections": "Seções",
+    "section": {
+      "video": {
+        "label": "Vídeo",
+        "hint": "resolução, qualidade"
+      },
+      "convars": {
+        "label": "Convars",
+        "hint": "crosshair, viewmodel, mouse, HUD"
+      },
+      "binds": {
+        "label": "Binds",
+        "hint": "teclas"
+      },
+      "machine": {
+        "label": "Convars de máquina",
+        "hint": "hardware, gráficos"
+      }
+    },
+    "warning": {
+      "title": "Feche o CS2 e a Steam antes de transferir",
+      "description": "A Steam Cloud pode sobrescrever as alterações se o jogo estiver aberto."
+    },
+    "selectBoth": "Selecione a conta de origem e a de destino",
+    "sameAccount": "Origem e destino precisam ser contas diferentes",
+    "selectSection": "Selecione ao menos uma seção para transferir",
+    "submit": "Transferir",
+    "success_one": "Configs transferidas ({{count}} arquivos).",
+    "success_other": "Configs transferidas ({{count}} arquivos).",
+    "successWithBackup_one": "Configs transferidas ({{count}} arquivos). Backup do destino criado.",
+    "successWithBackup_other": "Configs transferidas ({{count}} arquivos). Backup do destino criado."
+  },
+  "compare": {
+    "title": "Comparar contas",
+    "description": "Veja as diferenças de config entre duas contas",
+    "accountA": "Conta A",
+    "accountB": "Conta B",
+    "submit": "Comparar",
+    "dialog": {
+      "description": "Veja as diferenças de config entre duas contas.",
+      "selectBoth": "Selecione as duas contas"
+    },
+    "sameAccount": {
+      "title": "Escolha contas diferentes",
+      "description": "Selecione duas contas distintas para comparar as configs."
+    },
+    "onlyDiffs": "Mostrar somente diferenças",
+    "transferAB": "Transferir de A → B…",
+    "select": {
+      "title": "Selecione duas contas para comparar",
+      "description": "Escolha as contas A e B acima para ver as diferenças de config."
+    },
+    "identical": "As configs são idênticas.",
+    "summary_one": "{{count}} diferença entre as contas.",
+    "summary_other": "{{count}} diferenças entre as contas.",
+    "groupDiffs_one": "{{count}} diferença",
+    "groupDiffs_other": "{{count}} diferenças",
+    "groupIdentical": "idêntico",
+    "groupEmpty": "Nenhuma diferença neste grupo.",
+    "convar": "Convar",
+    "columnA": "A — {{name}}",
+    "columnB": "B — {{name}}",
+    "status": "Status",
+    "statusDifferent": "Diferente",
+    "statusOnlyA": "Só em A",
+    "statusOnlyB": "Só em B",
+    "groups": {
+      "video": "Vídeo",
+      "crosshair": "Crosshair",
+      "viewmodel": "Viewmodel",
+      "mouse": "Mouse",
+      "radarHud": "Radar/HUD",
+      "binds": "Binds",
+      "others": "Outras"
+    }
+  },
+  "detail": {
+    "notFound": {
+      "title": "Conta sem config de CS2"
+    },
+    "loadError": {
+      "title": "Falha ao carregar a conta"
+    },
+    "runningWarning": {
+      "title": "Steam/CS2 em execução",
+      "description": "Feche o CS2 e a Steam antes de editar — a Steam Cloud pode sobrescrever suas alterações."
+    },
+    "tabs": {
+      "overview": "Visão geral",
+      "edit": "Editar",
+      "binds": "Binds",
+      "convars": "Convars",
+      "files": "Arquivos",
+      "backups": "Backups"
+    },
+    "video": {
+      "title": "Vídeo",
+      "resolution": "Resolução",
+      "refreshRate": "Taxa de atualização",
+      "displayMode": "Modo de exibição",
+      "width": "Largura",
+      "height": "Altura",
+      "reflexBoost": "Ligado + Boost",
+      "qualityHint": "Qualidade gráfica — valores maiores = mais qualidade.",
+      "invalidResolution": "Resolução inválida",
+      "quality": {
+        "shadows": "Sombras",
+        "textures": "Texturas",
+        "textureFiltering": "Filtragem de textura",
+        "particles": "Partículas",
+        "ao": "Oclusão de ambiente (AO)",
+        "hdr": "HDR",
+        "fsr": "FidelityFX (FSR)",
+        "shader": "Shader"
+      }
+    },
+    "viewmodel": {
+      "title": "Viewmodel",
+      "preset": "Preset"
+    },
+    "mouse": {
+      "title": "Mouse",
+      "sensitivity": "Sensibilidade",
+      "zoomSensitivity": "Sens. zoom (AWP)",
+      "acceleration": "Aceleração",
+      "accelOff": "Desligada",
+      "invalidSensitivity": "Sensibilidade inválida"
+    },
+    "radar": {
+      "title": "Radar/HUD",
+      "size": "Tamanho do radar",
+      "zoom": "Zoom do radar",
+      "rotates": "Radar gira",
+      "hudScale": "Escala do HUD",
+      "centered": "Radar centralizado",
+      "iconScale": "Escala dos ícones",
+      "empty": "Nenhuma convar de radar/HUD nesta conta."
+    }
+  },
+  "crosshair": {
+    "title": "Crosshair",
+    "style": "Estilo",
+    "color": "Cor",
+    "size": "Tamanho",
+    "gap": "Gap",
+    "thickness": "Espessura",
+    "dot": "Ponto central",
+    "outline": "Contorno",
+    "alpha": "Alpha",
+    "opaque": "Opaco",
+    "previewAria": "Pré-visualização da crosshair",
+    "styles": {
+      "static": "Estático",
+      "dynamic": "Dinâmico",
+      "classic": "Clássico {{style}}"
+    },
+    "colors": {
+      "red": "Vermelho",
+      "green": "Verde",
+      "yellow": "Amarelo",
+      "blue": "Azul",
+      "cyan": "Ciano",
+      "custom": "Personalizada"
+    }
+  },
+  "binds": {
+    "searchPlaceholder": "Buscar por tecla ou comando…",
+    "discard": "Descartar",
+    "key": "Tecla",
+    "command": "Comando",
+    "commandPlaceholder": "Comando (ex: \"+jump\")",
+    "empty": "Nenhum bind nesta conta.",
+    "emptySearch": "Nenhum bind encontrado.",
+    "duplicateKey": "Essa tecla já tem bind — edite a linha existente",
+    "unboundTooltip": "Tecla desvinculada — remova a linha para voltar ao padrão do jogo",
+    "editBind": "Editar bind",
+    "removeBind": "Remover bind",
+    "undoRemove": "Desfazer remoção",
+    "addBind": "Adicionar bind",
+    "help": "Remover um bind apaga a tecla do arquivo (ela volta ao padrão do jogo). Salvar com comando vazio marca a tecla como <unbound>."
+  },
+  "convars": {
+    "searchPlaceholder": "Buscar convar…",
+    "editedCount_one": "{{count}} alteradas",
+    "editedCount_other": "{{count}} alteradas",
+    "edited": "alterada",
+    "editKey": "Editar {{key}}",
+    "empty": "Nenhuma convar de usuário nesta conta.",
+    "emptySearch": "Nenhuma convar encontrada.",
+    "machineReadonly": "Convars de máquina (somente leitura)",
+    "groups": {
+      "crosshair": "Crosshair",
+      "viewmodel": "Viewmodel",
+      "mouse": "Mouse",
+      "radarHud": "Radar/HUD",
+      "buymenu": "Buy menu",
+      "others": "Outras"
+    }
+  },
+  "files": {
+    "fileLabel": "Arquivo",
+    "modifiedAt": "{{size}} · modificado em {{date}}",
+    "save": "Salvar arquivo",
+    "saved": "Arquivo salvo.",
+    "savedWithBackup": "Arquivo salvo. Backup criado.",
+    "contentAria": "Conteúdo do arquivo",
+    "targets": {
+      "video": "Vídeo (cs2_video.txt)",
+      "convars": "Convars de usuário (cs2_user_convars_0_slot0.vcfg)",
+      "binds": "Binds (cs2_user_keys_0_slot0.vcfg)",
+      "machine": "Convars de máquina (cs2_machine_convars.vcfg)"
+    },
+    "missing": {
+      "title": "Arquivo não existe nesta conta",
+      "description": "O jogo cria esse arquivo automaticamente, mas você pode criá-lo manualmente.",
+      "create": "Criar arquivo"
+    },
+    "new": {
+      "title": "Arquivo novo",
+      "description": "O conteúdo é gravado tal qual — escreva no formato VDF do CS2."
+    },
+    "confirm": {
+      "title": "Sobrescrever arquivo?",
+      "description": "Isso sobrescreve o arquivo do jogo. Um backup será criado antes."
+    }
+  },
+  "backups": {
+    "create": "Criar backup",
+    "createNow": "Criar backup agora",
+    "created": "Backup criado",
+    "restored": "Backup restaurado",
+    "date": "Data",
+    "files": "Arquivos",
+    "filesCount_one": "{{count}} arquivos · {{size}}",
+    "filesCount_other": "{{count}} arquivos · {{size}}",
+    "empty": {
+      "title": "Nenhum backup ainda",
+      "description": "Backups são criados automaticamente antes de cada alteração, ou manualmente pelo botão acima."
+    },
+    "confirm": {
+      "title": "Restaurar backup?",
+      "description": "O estado atual será backupeado antes de restaurar."
+    }
+  }
+}
