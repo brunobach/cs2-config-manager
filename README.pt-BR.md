@@ -33,6 +33,7 @@ Baixe o instalador Windows mais recente (`*-setup.exe`, NSIS) em [Releases](../.
 - **Lê/escreve configs de CS2** apenas dentro de `Steam/userdata/<accountId>/730/local/cfg/` (os quatro arquivos: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`).
 - **Backups e configurações** ficam na pasta de dados do app: `%APPDATA%/com.cs2configmanager.app/` (`cs2-backups/<accountId>/<timestamp>/` e `settings.json`).
 - Toda escrita é atômica (arquivo temporário + rename) e precedida de um backup quando o arquivo de destino já existia.
+- Os dois arquivos sincronizados com a Steam Cloud (`cs2_user_convars_0_slot0.vcfg` e `cs2_user_keys_0_slot0.vcfg`) também têm os siblings `_lastclouded` atualizados com o mesmo conteúdo — sem isso, a sincronização da nuvem do CS2 reverte mudanças externas na próxima abertura do jogo.
 
 ## Desenvolvimento
 

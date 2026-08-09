@@ -97,10 +97,6 @@ fn try_parse_vdf(raw: Option<&str>) -> VdfObject {
 }
 
 /// Escrita atômica: escreve em arquivo temporário no mesmo diretório e renomeia.
-pub(crate) fn atomic_write(file_path: &Path, content: &str) -> Result<(), AppError> {
-    atomic_write_bytes(file_path, content.as_bytes())
-}
-
 pub(crate) fn atomic_write_bytes(file_path: &Path, content: &[u8]) -> Result<(), AppError> {
     let mut tmp_name = file_path
         .file_name()
@@ -110,6 +106,33 @@ pub(crate) fn atomic_write_bytes(file_path: &Path, content: &[u8]) -> Result<(),
     let tmp_path = file_path.with_file_name(tmp_name);
     fs::write(&tmp_path, content)?;
     rename_replace(&tmp_path, file_path)?;
+    Ok(())
+}
+
+/// `true` para os 2 arquivos que o CS2 sincroniza com a Steam Cloud
+/// (RemoteStorage) — os únicos que têm sibling `_lastclouded` na pasta cfg.
+fn is_cloud_synced(file_name: &str) -> bool {
+    matches!(
+        file_name,
+        "cs2_user_convars_0_slot0.vcfg" | "cs2_user_keys_0_slot0.vcfg"
+    )
+}
+
+/// Escrita atômica "cloud-aware": para os arquivos sincronizados com a Steam
+/// Cloud, escreve o mesmo conteúdo também no sibling `<nome>_lastclouded`.
+/// O `_lastclouded` é a referência que o CS2 usa para detectar mudança externa;
+/// sem atualizá-lo, o jogo trata a cópia da nuvem como vencedora do conflito e
+/// reverte nossa escrita na próxima abertura.
+pub(crate) fn atomic_write_cloud_aware(file_path: &Path, content: &[u8]) -> Result<(), AppError> {
+    atomic_write_bytes(file_path, content)?;
+    let file_name = file_path
+        .file_name()
+        .map(|name| name.to_string_lossy().into_owned())
+        .unwrap_or_default();
+    if is_cloud_synced(&file_name) {
+        let lastclouded = file_path.with_file_name(format!("{file_name}_lastclouded"));
+        atomic_write_bytes(&lastclouded, content)?;
+    }
     Ok(())
 }
 
@@ -233,7 +256,7 @@ pub fn update_config_keys(
     } else {
         None
     };
-    atomic_write(&file_path, &serialize_vdf(root_key, root))?;
+    atomic_write_cloud_aware(&file_path, serialize_vdf(root_key, root).as_bytes())?;
     Ok((updated, backup_id))
 }
 
@@ -252,7 +275,7 @@ pub fn write_raw_file(
     } else {
         None
     };
-    atomic_write(&file_path, content)?;
+    atomic_write_cloud_aware(&file_path, content.as_bytes())?;
     Ok(backup_id)
 }
 
@@ -421,7 +444,7 @@ pub fn restore_backup(
             continue;
         }
         let content = fs::read(entry.path())?;
-        atomic_write_bytes(&dest_dir.join(&name), &content)?;
+        atomic_write_cloud_aware(&dest_dir.join(&name), &content)?;
     }
     Ok(pre_restore_backup_id)
 }
@@ -472,6 +495,31 @@ mod tests {
         assert_eq!(flat.get("a").map(String::as_str), Some("1"));
         assert!(flatten_leaf(&parsed, &["config", "inexistente"]).is_empty());
         assert!(flatten_leaf(&parsed, &["nao-existe"]).is_empty());
+    }
+
+    #[test]
+    fn cloud_aware_write_updates_lastclouded_pair() {
+        let dir = std::env::temp_dir().join(format!("cs2cfg-test-cloud-{}", std::process::id()));
+        fs::create_dir_all(&dir).unwrap();
+
+        let convars = dir.join("cs2_user_convars_0_slot0.vcfg");
+        atomic_write_cloud_aware(&convars, b"\"config\" {}").unwrap();
+        assert_eq!(fs::read(&convars).unwrap(), b"\"config\" {}");
+        assert_eq!(
+            fs::read(dir.join("cs2_user_convars_0_slot0.vcfg_lastclouded")).unwrap(),
+            b"\"config\" {}"
+        );
+
+        let keys = dir.join("cs2_user_keys_0_slot0.vcfg");
+        atomic_write_cloud_aware(&keys, b"\"config\" {}").unwrap();
+        assert!(dir.join("cs2_user_keys_0_slot0.vcfg_lastclouded").exists());
+
+        // Video/Machine não são sincronizados com a Steam Cloud: sem pair.
+        let video = dir.join("cs2_video.txt");
+        atomic_write_cloud_aware(&video, b"\"video.cfg\" {}").unwrap();
+        assert!(!dir.join("cs2_video.txt_lastclouded").exists());
+
+        fs::remove_dir_all(&dir).ok();
     }
 
     #[test]

@@ -1,10 +1,13 @@
 //! Cópia de seções de config entre contas.
 //!
 //! Port de `web/src/server/steam/transfer.ts`: só copia os 4 nomes em
-//! `ConfigTarget::file_name` — `*_lastclouded`, `*.bak`, `trustedlaunch.cfg`
-//! e `qmmconnect.dt` nunca são tocados. Backup do destino antes.
+//! `ConfigTarget::file_name` — `*.bak`, `trustedlaunch.cfg` e `qmmconnect.dt`
+//! nunca são tocados. Backup do destino antes. Para os 2 arquivos
+//! sincronizados com a Steam Cloud, o sibling `_lastclouded` recebe o mesmo
+//! conteúdo (ver `atomic_write_cloud_aware`) — sem isso o CS2 reverte a
+//! transferência na próxima abertura do jogo.
 
-use crate::config_files::{account_cfg_dir, atomic_write_bytes, create_backup};
+use crate::config_files::{account_cfg_dir, atomic_write_cloud_aware, create_backup};
 use crate::error::AppError;
 use crate::types::{ConfigTarget, TransferResult, TransferSections};
 use std::fs;
@@ -49,7 +52,7 @@ pub fn transfer_configs(
             continue;
         }
         let content = fs::read(&src_path)?;
-        atomic_write_bytes(&dest_dir.join(name), &content)?;
+        atomic_write_cloud_aware(&dest_dir.join(name), &content)?;
         copied.push(name.to_string());
     }
 
