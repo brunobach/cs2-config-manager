@@ -452,7 +452,7 @@ dependencies = [
 
 [[package]]
 name = "cs2-config-manager"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "indexmap 2.14.0",
  "reqwest 0.12.28",

@@ -1,6 +1,6 @@
 [package]
 name = "cs2-config-manager"
-version = "0.1.0"
+version = "0.1.1"
 description = "Open source desktop app to manage CS2 configs across Steam accounts"
 edition = "2021"
 rust-version = "1.77.2"
