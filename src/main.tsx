@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import { Toaster } from "sonner";
 
 import App from "./App";
+import { TooltipProvider } from "./components/ui/tooltip";
 import { useTheme } from "./lib/theme";
 
 import "./index.css";
@@ -12,7 +13,9 @@ function Root() {
   const { theme } = useTheme();
   return (
     <>
-      <App />
+      <TooltipProvider>
+        <App />
+      </TooltipProvider>
       <Toaster richColors position="bottom-right" theme={theme} />
     </>
   );
