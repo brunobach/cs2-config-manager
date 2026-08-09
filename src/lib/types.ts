@@ -51,6 +51,12 @@ export interface KeyBind {
   command: string;
 }
 
+export interface ScreenshotInfo {
+  name: string;
+  size: number;
+  mtime: string;
+}
+
 export interface ConfigFileInfo {
   target: ConfigTarget;
   name: string;

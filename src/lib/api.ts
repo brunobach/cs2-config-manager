@@ -8,6 +8,7 @@ import type {
   CreateBackupResult,
   DiffResult,
   RestoreBackupResult,
+  ScreenshotInfo,
   SteamAccountSummary,
   SteamPathInfo,
   TransferResult,
@@ -52,6 +53,14 @@ export function getAccountConfig(accountId: string): Promise<AccountConfigRespon
 
 export function openCfgFolder(accountId: string): Promise<void> {
   return call("open_cfg_folder", { accountId });
+}
+
+export function listScreenshots(accountId: string): Promise<ScreenshotInfo[]> {
+  return call("list_screenshots", { accountId });
+}
+
+export function getScreenshot(accountId: string, name: string): Promise<number[] | null> {
+  return call("get_screenshot", { accountId, name });
 }
 
 export function updateConfigKeys(

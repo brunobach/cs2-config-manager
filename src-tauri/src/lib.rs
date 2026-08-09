@@ -11,6 +11,7 @@ mod config_files;
 mod diff;
 mod error;
 mod groups;
+mod screenshots;
 mod settings;
 mod steam_ids;
 mod steam_locator;
@@ -22,7 +23,8 @@ mod vdf;
 use crate::error::AppError;
 use crate::types::{
     AccountConfigResponse, BackupInfo, CreateBackupResult, DiffResult, RawResult, RestoreResult,
-    SteamAccountSummary, SteamPathInfo, TransferResult, TransferSections, UpdateResult,
+    ScreenshotInfo, SteamAccountSummary, SteamPathInfo, TransferResult, TransferSections,
+    UpdateResult,
 };
 use std::collections::HashMap;
 use std::path::{Path, PathBuf};
@@ -113,16 +115,36 @@ async fn get_account_config(
     Ok(AccountConfigResponse { account, config })
 }
 
-/// Abre a pasta cfg da conta no Explorer. O exit code do `explorer` não é
-/// checado (retorna não-zero mesmo em sucesso) — só falha de spawn vira erro.
+/// Abre a pasta cfg da conta no gerenciador de arquivos do SO. Usa ShellExecuteW
+/// (crate `open`): spawn de `explorer <path>` abria a pasta errada (Documents)
+/// com paths contendo espaços/parênteses.
 #[tauri::command]
 async fn open_cfg_folder(
     state: tauri::State<'_, AppState>,
     account_id: String,
 ) -> Result<(), AppError> {
     let dir = config_files::account_cfg_dir(&state.data_dir, &account_id)?;
-    std::process::Command::new("explorer").arg(&dir).spawn()?;
+    open::that_detached(&dir)?;
     Ok(())
+}
+
+/// Lista as screenshots do CS2 da conta (capturas via Steam/F12), recentes 1º.
+#[tauri::command]
+async fn list_screenshots(
+    state: tauri::State<'_, AppState>,
+    account_id: String,
+) -> Result<Vec<ScreenshotInfo>, AppError> {
+    Ok(screenshots::list_screenshots(&state.data_dir, &account_id))
+}
+
+/// Bytes de uma screenshot; `None` quando não existe (nome validado no backend).
+#[tauri::command]
+async fn get_screenshot(
+    state: tauri::State<'_, AppState>,
+    account_id: String,
+    name: String,
+) -> Result<Option<Vec<u8>>, AppError> {
+    Ok(screenshots::get_screenshot_bytes(&state.data_dir, &account_id, &name))
 }
 
 #[tauri::command]
@@ -252,6 +274,8 @@ pub fn run() {
             list_accounts,
             get_account_config,
             open_cfg_folder,
+            list_screenshots,
+            get_screenshot,
             update_config_keys,
             write_raw_file,
             list_backups,

@@ -16,6 +16,8 @@ Feito com **Tauri 2** (backend em Rust) + **React 19 / Vite / Tailwind CSS v4** 
 - **Edite com segurança** — editores amigáveis para crosshair/vídeo/viewmodel/mouse, editor completo de binds, tabela de convars com busca e um editor de texto puro para os quatro arquivos de config.
 - **Transfira configs entre contas** — copie vídeo/convars/binds (ou tudo) de uma conta para outra em dois cliques. Perfeito para quando você entra numa conta secundária e tudo volta ao padrão.
 - **Compare contas** — diff lado a lado das configs de duas contas, agrupado por categoria, com filtro "somente diferenças".
+- **Veja suas screenshots da Steam** — as capturas de CS2 da conta (F12 da Steam) em uma aba de galeria dentro do perfil.
+- **Vá direto para a pasta cfg** — um clique no menu ⋯ da conta ou no cabeçalho do perfil abre `userdata/<accountId>/730/local/cfg` no Explorer.
 - **Backups automáticos** — toda operação de escrita (editar, transferir, restaurar) primeiro tira um snapshot dos arquivos atuais. Snapshots manuais e restauração em um clique incluídos.
 - **Aviso de Steam Cloud** — o app detecta quando a Steam/CS2 está rodando e avisa antes de escrever (a Steam Cloud pode sobrescrever mudanças feitas com o jogo aberto).
 - **i18n** — English e Português (Brasil), mais idiomas são bem-vindos.
@@ -30,7 +32,7 @@ Baixe o instalador Windows mais recente (`*-setup.exe`, NSIS) em [Releases](../.
 
 ## Onde ele escreve?
 
-- **Lê/escreve configs de CS2** apenas dentro de `Steam/userdata/<accountId>/730/local/cfg/` (os quatro arquivos: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`).
+- **Lê/escreve configs de CS2** apenas dentro de `Steam/userdata/<accountId>/730/local/cfg/` (os quatro arquivos: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`). Também **lê** (nunca escreve) as capturas de CS2 em `Steam/userdata/<accountId>/760/remote/730/screenshots/`.
 - **Backups e configurações** ficam na pasta de dados do app: `%APPDATA%/com.cs2configmanager.app/` (`cs2-backups/<accountId>/<timestamp>/` e `settings.json`).
 - Toda escrita é atômica (arquivo temporário + rename) e precedida de um backup quando o arquivo de destino já existia.
 - Os dois arquivos sincronizados com a Steam Cloud (`cs2_user_convars_0_slot0.vcfg` e `cs2_user_keys_0_slot0.vcfg`) também têm os siblings `_lastclouded` atualizados com o mesmo conteúdo — sem isso, a sincronização da nuvem do CS2 reverte mudanças externas na próxima abertura do jogo.

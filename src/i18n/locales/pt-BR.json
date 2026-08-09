@@ -199,7 +199,8 @@
       "binds": "Binds",
       "convars": "Convars",
       "files": "Arquivos",
-      "backups": "Backups"
+      "backups": "Backups",
+      "screenshots": "Capturas"
     },
     "video": {
       "title": "Vídeo",
@@ -349,5 +350,8 @@
       "title": "Restaurar backup?",
       "description": "O estado atual será backupeado antes de restaurar."
     }
+  },
+  "screenshots": {
+    "empty": "Nenhuma captura de CS2 encontrada para esta conta. Tire algumas no jogo com F12 (overlay da Steam)."
   }
 }

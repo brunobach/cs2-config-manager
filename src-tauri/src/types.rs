@@ -76,6 +76,14 @@ pub struct KeyBind {
 }
 
 #[derive(Debug, Clone, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ScreenshotInfo {
+    pub name: String,
+    pub size: u64,
+    pub mtime: String,
+}
+
+#[derive(Debug, Clone, Serialize)]
 pub struct ConfigFileInfo {
     pub target: ConfigTarget,
     pub name: String,

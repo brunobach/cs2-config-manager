@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 
-import { Archive, ArrowLeft, ArrowLeftRight, TriangleAlert, User } from "lucide-react";
+import { Archive, ArrowLeft, ArrowLeftRight, FolderOpen, TriangleAlert, User } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { toast } from "sonner";
@@ -14,7 +14,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { AccountBadges } from "@/features/accounts/account-badges";
 import { TransferDialog } from "@/features/accounts/transfer-dialog";
 import { accountDisplayName } from "@/lib/account";
-import { createBackup, getAccountConfig, getSteamPathInfo, listAccounts } from "@/lib/api";
+import { createBackup, getAccountConfig, getSteamPathInfo, listAccounts, openCfgFolder } from "@/lib/api";
 import { errorMessage, toApiError } from "@/lib/errors";
 import type { AccountConfig, SteamAccountSummary, SteamPathInfo } from "@/lib/types";
 
@@ -24,6 +24,7 @@ import { ConvarsTab } from "./convars-tab";
 import { EditTab } from "./edit-tab";
 import { FilesTab } from "./files-tab";
 import { OverviewTab } from "./overview-tab";
+import { ScreenshotsTab } from "./screenshots-tab";
 
 interface AccountDetailProps {
   accountId: string;
@@ -73,6 +74,14 @@ export function AccountDetail({ accountId }: AccountDetailProps) {
       await createBackup(accountId);
       toast.success(t("backups.created"));
       setBackupsVersion((v) => v + 1);
+    } catch (err) {
+      toast.error(errorMessage(err, t));
+    }
+  }
+
+  async function handleOpenFolder() {
+    try {
+      await openCfgFolder(accountId);
     } catch (err) {
       toast.error(errorMessage(err, t));
     }
@@ -143,6 +152,10 @@ export function AccountDetail({ accountId }: AccountDetailProps) {
           </div>
         </div>
         <div className="flex flex-wrap gap-2">
+          <Button variant="outline" onClick={handleOpenFolder}>
+            <FolderOpen data-icon="inline-start" />
+            {t("accounts.card.openFolder")}
+          </Button>
           <Button variant="outline" onClick={() => setTransferOpen(true)}>
             <ArrowLeftRight data-icon="inline-start" />
             {t("transfer.action")}
@@ -172,6 +185,7 @@ export function AccountDetail({ accountId }: AccountDetailProps) {
           <TabsTrigger value="convars">{t("detail.tabs.convars")}</TabsTrigger>
           <TabsTrigger value="arquivos">{t("detail.tabs.files")}</TabsTrigger>
           <TabsTrigger value="backups">{t("detail.tabs.backups")}</TabsTrigger>
+          <TabsTrigger value="screenshots">{t("detail.tabs.screenshots")}</TabsTrigger>
         </TabsList>
 
         <TabsContent value="visao-geral" className="mt-4">
@@ -207,6 +221,9 @@ export function AccountDetail({ accountId }: AccountDetailProps) {
         </TabsContent>
         <TabsContent value="backups" className="mt-4">
           <BackupsTab accountId={accountId} version={backupsVersion} onRestored={refreshConfig} />
+        </TabsContent>
+        <TabsContent value="screenshots" className="mt-4">
+          <ScreenshotsTab accountId={accountId} />
         </TabsContent>
       </Tabs>
 

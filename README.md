@@ -16,6 +16,8 @@ Built with **Tauri 2** (Rust backend) + **React 19 / Vite / Tailwind CSS v4** (f
 - **Edit safely** — friendly editors for crosshair/video/viewmodel/mouse, full bind editor, searchable convar table, and a raw file editor for the four config files.
 - **Transfer configs between accounts** — copy video/convars/binds (or everything) from one account to another in two clicks. Perfect for when you log into a second account and everything resets to default.
 - **Compare accounts** — side-by-side diff of two accounts' configs, grouped by category, with a "differences only" filter.
+- **Browse Steam screenshots** — the account's CS2 captures (Steam F12) in a gallery tab inside the profile.
+- **Jump to the cfg folder** — one click in the account ⋯ menu or profile header opens `userdata/<accountId>/730/local/cfg` in Explorer.
 - **Automatic backups** — every write operation (edit, transfer, restore) first snapshots the current files. Manual snapshots and one-click restore included.
 - **Steam Cloud warning** — the app detects when Steam/CS2 is running and warns you before writing (Steam Cloud can overwrite changes made while the game is open).
 - **i18n** — English and Português (Brasil), with more languages welcome.
@@ -30,7 +32,7 @@ Grab the latest Windows installer (`*-setup.exe`, NSIS) from [Releases](../../re
 
 ## Where does it write?
 
-- **Reads/writes CS2 configs** only inside `Steam/userdata/<accountId>/730/local/cfg/` (the four files: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`).
+- **Reads/writes CS2 configs** only inside `Steam/userdata/<accountId>/730/local/cfg/` (the four files: `cs2_video.txt`, `cs2_user_convars_0_slot0.vcfg`, `cs2_user_keys_0_slot0.vcfg`, `cs2_machine_convars.vcfg`). It also **reads** (never writes) CS2 screenshots from `Steam/userdata/<accountId>/760/remote/730/screenshots/`.
 - **Backups and settings** live in the app data folder: `%APPDATA%/com.cs2configmanager.app/` (`cs2-backups/<accountId>/<timestamp>/` and `settings.json`).
 - Every write is atomic (temp file + rename) and preceded by a backup when the target file already existed.
 - The two files synced with Steam Cloud (`cs2_user_convars_0_slot0.vcfg` and `cs2_user_keys_0_slot0.vcfg`) also have their `_lastclouded` siblings updated with the same content — otherwise CS2's cloud sync would revert external changes on the next launch.

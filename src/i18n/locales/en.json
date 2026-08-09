@@ -199,7 +199,8 @@
       "binds": "Binds",
       "convars": "Convars",
       "files": "Files",
-      "backups": "Backups"
+      "backups": "Backups",
+      "screenshots": "Screenshots"
     },
     "video": {
       "title": "Video",
@@ -349,5 +350,8 @@
       "title": "Restore backup?",
       "description": "The current state will be backed up before restoring."
     }
+  },
+  "screenshots": {
+    "empty": "No CS2 screenshots found for this account. Take some in-game with F12 (Steam overlay)."
   }
 }

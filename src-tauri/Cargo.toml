@@ -30,6 +30,9 @@ time = "0.3"
 # Mapas ordenados por inserção para que o JSON preserve a ordem das chaves
 # do arquivo VDF, exatamente como os objetos JS fazem no backend TS.
 indexmap = { version = "2", features = ["serde"] }
+# Abrir pastas com o app padrão do SO (ShellExecuteW no Windows) — robusto com
+# paths com espaços/parênteses (spawn de `explorer <path>` abria a pasta errada).
+open = "5"
 
 [target.'cfg(windows)'.dependencies]
 winreg = "0.52"
