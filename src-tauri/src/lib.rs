@@ -113,6 +113,18 @@ async fn get_account_config(
     Ok(AccountConfigResponse { account, config })
 }
 
+/// Abre a pasta cfg da conta no Explorer. O exit code do `explorer` não é
+/// checado (retorna não-zero mesmo em sucesso) — só falha de spawn vira erro.
+#[tauri::command]
+async fn open_cfg_folder(
+    state: tauri::State<'_, AppState>,
+    account_id: String,
+) -> Result<(), AppError> {
+    let dir = config_files::account_cfg_dir(&state.data_dir, &account_id)?;
+    std::process::Command::new("explorer").arg(&dir).spawn()?;
+    Ok(())
+}
+
 #[tauri::command]
 async fn update_config_keys(
     state: tauri::State<'_, AppState>,
@@ -239,6 +251,7 @@ pub fn run() {
             clear_steam_path_override,
             list_accounts,
             get_account_config,
+            open_cfg_folder,
             update_config_keys,
             write_raw_file,
             list_backups,

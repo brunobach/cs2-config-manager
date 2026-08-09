@@ -7,7 +7,7 @@ import { toast } from "sonner";
 import { Button } from "@/components/ui/button";
 import { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from "@/components/ui/empty";
 import { Skeleton } from "@/components/ui/skeleton";
-import { createBackup, getSteamPathInfo, listAccounts } from "@/lib/api";
+import { createBackup, getSteamPathInfo, listAccounts, openCfgFolder } from "@/lib/api";
 import { errorMessage } from "@/lib/errors";
 import type { SteamAccountSummary, SteamPathInfo } from "@/lib/types";
 
@@ -55,6 +55,14 @@ export function AccountsManager() {
     try {
       await createBackup(account.accountId);
       toast.success(t("backups.created"));
+    } catch (err) {
+      toast.error(errorMessage(err, t));
+    }
+  }
+
+  async function handleOpenFolder(account: SteamAccountSummary) {
+    try {
+      await openCfgFolder(account.accountId);
     } catch (err) {
       toast.error(errorMessage(err, t));
     }
@@ -114,6 +122,7 @@ export function AccountsManager() {
                 index={index}
                 onBackup={handleBackup}
                 onTransfer={openTransfer}
+                onOpenFolder={handleOpenFolder}
               />
             ))}
           </div>

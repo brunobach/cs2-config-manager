@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
-import { Archive, ArrowLeftRight, Clock, EllipsisVertical, Keyboard, Monitor, Settings2 } from "lucide-react";
+import { Archive, ArrowLeftRight, Clock, EllipsisVertical, FolderOpen, Keyboard, Monitor, Settings2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 import { AccountAvatar } from "@/components/layout/account-avatar";
@@ -31,9 +31,10 @@ interface AccountCardProps {
   index: number;
   onBackup: (account: SteamAccountSummary) => void;
   onTransfer: (account: SteamAccountSummary) => void;
+  onOpenFolder: (account: SteamAccountSummary) => void;
 }
 
-export function AccountCard({ account, index, onBackup, onTransfer }: AccountCardProps) {
+export function AccountCard({ account, index, onBackup, onTransfer, onOpenFolder }: AccountCardProps) {
   const { t } = useTranslation();
   const name = accountDisplayName(account);
   const displayMode = account.displayMode ? (DISPLAY_MODE_KEYS[account.displayMode] ?? null) : null;
@@ -66,6 +67,10 @@ export function AccountCard({ account, index, onBackup, onTransfer }: AccountCar
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
+              <DropdownMenuItem onClick={() => onOpenFolder(account)}>
+                <FolderOpen />
+                {t("accounts.card.openFolder")}
+              </DropdownMenuItem>
               <DropdownMenuItem onClick={() => onBackup(account)}>
                 <Archive />
                 {t("backups.create")}

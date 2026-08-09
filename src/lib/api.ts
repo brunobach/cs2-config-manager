@@ -50,6 +50,10 @@ export function getAccountConfig(accountId: string): Promise<AccountConfigRespon
   return call("get_account_config", { accountId });
 }
 
+export function openCfgFolder(accountId: string): Promise<void> {
+  return call("open_cfg_folder", { accountId });
+}
+
 export function updateConfigKeys(
   accountId: string,
   target: ConfigTarget,

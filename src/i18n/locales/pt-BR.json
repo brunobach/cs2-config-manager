@@ -72,6 +72,7 @@
     "card": {
       "actions": "Ações da conta",
       "open": "Abrir",
+      "openFolder": "Abrir pasta da config",
       "binds_one": "{{count}} binds",
       "binds_other": "{{count}} binds",
       "convars_one": "{{count}} convars",
