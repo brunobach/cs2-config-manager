@@ -6,7 +6,7 @@ A free, open-source desktop app to manage Counter-Strike 2 configs across multip
 
 Built with **Tauri 2** (Rust backend) + **React 19 / Vite / Tailwind CSS v4** (frontend). Windows only (for now).
 
-**English** · [Português (BR)](README.pt-BR.md)
+**English** · [Português (BR)](README.pt-BR.md) · [Website](https://brunobach.github.io/cs2-config-manager/)
 
 ## Features
 

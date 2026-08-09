@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CS2 Config Manager — Manage, compare and transfer configs across Steam accounts</title>
+  <meta name="description" content="Free and open-source desktop app to manage, compare and transfer Counter-Strike 2 configs across multiple Steam accounts." />
+  <meta property="og:title" content="CS2 Config Manager" />
+  <meta property="og:description" content="Manage, compare and transfer CS2 configs across all your Steam accounts. Free & open source." />
+  <meta property="og:image" content="./assets/hero.jpg" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='8' fill='%23f59e0b'/><path d='M50 5v30M50 65v30M5 50h30M65 50h30' stroke='%23f59e0b' stroke-width='8'/></svg>" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top">
+        <svg class="brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="2.2" fill="currentColor" stroke="none"/><path d="M12 2v6M12 16v6M2 12h6M16 12h6"/></svg>
+        <span>CS2 Config Manager</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#features" data-i18n="nav.features">Features</a>
+        <a href="#docs" data-i18n="nav.docs">Docs</a>
+        <a href="https://github.com/brunobach/cs2-config-manager" target="_blank" rel="noopener">GitHub</a>
+        <button id="lang-toggle" class="lang-toggle" type="button" aria-label="Switch language">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <span id="lang-label">PT-BR</span>
+        </button>
+        <a href="#download" class="btn btn-sm btn-primary" data-i18n="nav.download">Download</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <p class="eyebrow reveal" data-i18n="hero.eyebrow">Free &amp; open source · Windows</p>
+        <h1 class="reveal" data-i18n="hero.title">One config manager for all your CS2 accounts</h1>
+        <p class="hero-sub reveal" data-i18n="hero.sub">Manage, compare and transfer Counter-Strike 2 configs across multiple Steam accounts — with automatic backups and a live crosshair preview.</p>
+        <div class="hero-cta reveal" id="download">
+          <a id="download-btn" class="btn btn-primary btn-lg" href="https://github.com/brunobach/cs2-config-manager/releases" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+            <span id="download-label" data-i18n="hero.download">Download for Windows</span>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="https://github.com/brunobach/cs2-config-manager" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" class="icon"><path d="M12 .5C5.65.5.5 5.65.5 12c0 5.08 3.29 9.39 7.86 10.91.58.11.79-.25.79-.55v-2.17c-3.2.7-3.87-1.36-3.87-1.36-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.18 1.76 1.18 1.03 1.76 2.7 1.25 3.35.96.1-.75.4-1.25.72-1.54-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.18-3.09-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.18a10.9 10.9 0 0 1 5.74 0c2.19-1.49 3.15-1.18 3.15-1.18.62 1.59.23 2.76.11 3.05.74.8 1.18 1.83 1.18 3.09 0 4.42-2.7 5.39-5.26 5.68.41.35.77 1.05.77 2.12v3.15c0 .3.21.67.8.55A11.5 11.5 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5z"/></svg>
+            <span data-i18n="hero.github">View on GitHub</span>
+          </a>
+        </div>
+        <p class="hero-note reveal" data-i18n="hero.note">Windows 10/11 · 64-bit · MIT License</p>
+        <div class="hero-shot reveal">
+          <img src="./assets/hero.jpg" alt="CS2 Config Manager — screenshots of the app" width="1920" height="1072" />
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="container">
+        <h2 class="reveal" data-i18n="features.title">Everything your configs need</h2>
+        <p class="section-sub reveal" data-i18n="features.sub">Built for players who juggle more than one Steam account.</p>
+        <div class="grid">
+          <article class="card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-icon"><path d="M21 12a9 9 0 1 1-6.2-8.56"/><path d="M22 2 12 12"/><path d="m16 2 6 6-3-3 3-3z"/></svg>
+            <h3 data-i18n="features.detect.title">Automatic Steam detection</h3>
+            <p data-i18n="features.detect.body">Finds your Steam install via the registry and lists every account with CS2 configs — avatars, resolution, binds and last played at a glance.</p>
+          </article>
+          <article class="card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-icon"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+            <h3 data-i18n="features.edit.title">See &amp; edit everything</h3>
+            <p data-i18n="features.edit.body">Video, crosshair (with live preview), viewmodel, mouse, radar/HUD, binds and 400+ convars — friendly editors plus a raw file editor.</p>
+          </article>
+          <article class="card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-icon"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>
+            <h3 data-i18n="features.transfer.title">Transfer between accounts</h3>
+            <p data-i18n="features.transfer.body">Copy video, convars and binds (or everything) to another account in two clicks. Steam Cloud–aware: configs survive the next game launch.</p>
+          </article>
+          <article class="card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-icon"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><path d="M11 18H8a2 2 0 0 1-2-2V9"/></svg>
+            <h3 data-i18n="features.compare.title">Compare accounts</h3>
+            <p data-i18n="features.compare.body">Side-by-side diff of two accounts' configs, grouped by category, with a "differences only" filter.</p>
+          </article>
+          <article class="card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-icon"><rect width="20" height="8" x="2" y="2" rx="2" ry="2"/><rect width="20" height="8" x="2" y="14" rx="2" ry="2"/><line x1="6" x2="6.01" y1="6" y2="6"/><line x1="6" x2="6.01" y1="18" y2="18"/></svg>
+            <h3 data-i18n="features.backups.title">Automatic backups</h3>
+            <p data-i18n="features.backups.body">Every edit, transfer or restore snapshots your files first. Manual snapshots and one-click restore included.</p>
+          </article>
+          <article class="card reveal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="card-icon"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+            <h3 data-i18n="features.shots.title">Screenshots gallery</h3>
+            <p data-i18n="features.shots.body">Browse each account's CS2 screenshots (Steam F12 captures) right in the profile, and jump to the cfg folder in one click.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-alt">
+      <div class="container">
+        <h2 class="reveal" data-i18n="steps.title">Up and running in a minute</h2>
+        <div class="steps">
+          <div class="step reveal">
+            <span class="step-num">1</span>
+            <h3 data-i18n="steps.1.title">Download &amp; install</h3>
+            <p data-i18n="steps.1.body">Grab the latest <code>*-setup.exe</code> from Releases and run it. Windows may show a SmartScreen warning — click <strong>More info → Run anyway</strong> (the installer is not code-signed yet).</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">2</span>
+            <h3 data-i18n="steps.2.title">Close CS2 &amp; Steam</h3>
+            <p data-i18n="steps.2.body">Before editing or transferring, close the game (and preferably Steam) so Steam Cloud can't overwrite your changes. The app warns you when either is running.</p>
+          </div>
+          <div class="step reveal">
+            <span class="step-num">3</span>
+            <h3 data-i18n="steps.3.title">Manage everything</h3>
+            <p data-i18n="steps.3.body">Pick an account to view, edit, compare, transfer or back up its configs — all changes are snapshotted automatically.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="docs">
+      <div class="container">
+        <h2 class="reveal" data-i18n="docs.title">Documentation</h2>
+        <p class="section-sub reveal" data-i18n="docs.sub">Everything lives in the repository — pick your language.</p>
+        <div class="grid grid-docs">
+          <a class="card card-link reveal" href="https://github.com/brunobach/cs2-config-manager#readme" target="_blank" rel="noopener">
+            <h3 data-i18n="docs.readme.title">README (English)</h3>
+            <p data-i18n="docs.readme.body">Features, install guide, development setup and project structure.</p>
+            <span class="card-more" data-i18n="docs.more">Open ↗</span>
+          </a>
+          <a class="card card-link reveal" href="https://github.com/brunobach/cs2-config-manager/blob/main/README.pt-BR.md" target="_blank" rel="noopener">
+            <h3 data-i18n="docs.readmept.title">README (Português)</h3>
+            <p data-i18n="docs.readmept.body">Funcionalidades, instalação, setup de desenvolvimento e estrutura do projeto.</p>
+            <span class="card-more" data-i18n="docs.more">Open ↗</span>
+          </a>
+          <a class="card card-link reveal" href="https://github.com/brunobach/cs2-config-manager/releases" target="_blank" rel="noopener">
+            <h3 data-i18n="docs.releases.title">Releases &amp; changelog</h3>
+            <p data-i18n="docs.releases.body">Every version, installer downloads and what changed.</p>
+            <span class="card-more" data-i18n="docs.more">Open ↗</span>
+          </a>
+          <a class="card card-link reveal" href="https://github.com/brunobach/cs2-config-manager/issues" target="_blank" rel="noopener">
+            <h3 data-i18n="docs.issues.title">Issues &amp; feedback</h3>
+            <p data-i18n="docs.issues.body">Found a bug or have an idea? Open an issue — contributions welcome.</p>
+            <span class="card-more" data-i18n="docs.more">Open ↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p data-i18n="footer.made">Made by <a href="https://github.com/brunobach" target="_blank" rel="noopener">brunobach</a> · MIT License</p>
+      <p class="footer-note" data-i18n="footer.note">Not affiliated with Valve or Steam. Counter-Strike is a trademark of Valve Corporation.</p>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
